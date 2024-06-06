@@ -58,14 +58,44 @@ node_modules
 .env
 .env.*
 
-# Ignore log files and databases
+
+# Local by Flywheel files
+*.sql
+*.tar
+local.sql
+local-backup.sql
+local-backup
+.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Composer dependencies
+/vendor
+
+# Node.js dependencies
+node_modules
+/public
+
+# Local environment files
+.env
+
+# Log files and databases
 *.log
 *.sql
 *.sqlite
 
-# Ignore Yarn files
+# Yarn files
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+
+# Sage generated files
+public
+
+# Exclude the local environment specific files
+local-exports
+local-backup
