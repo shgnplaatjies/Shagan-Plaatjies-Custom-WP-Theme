@@ -1,12 +1,12 @@
 <VirtualHost *:{{port}}>
 	ServerAdmin webmaster@localhost
-	DocumentRoot "{{root}}"
+	DocumentRoot "C:\Users\plaat\Local Sites\shaganplaatjies-theme\app\bedrock\web"
 
 	ErrorLog "{{logs.siteErrorLog}}"
 	LogFormat "%h %l %u %t \"%r\" %>s %b" common
 	CustomLog "{{logs.accessLog}}" common
 
-   	<Directory "{{root}}">
+   	<Directory "C:\Users\plaat\Local Sites\shaganplaatjies-theme\app\bedrock\web">
        Options Indexes FollowSymLinks ExecCGI
        AllowOverride All
        Require all granted
