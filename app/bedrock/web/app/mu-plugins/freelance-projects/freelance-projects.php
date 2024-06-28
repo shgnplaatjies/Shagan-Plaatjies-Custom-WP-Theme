@@ -61,3 +61,85 @@ function register_freelance_projects() {
 }
 
 add_action('init', __NAMESPACE__ . '\\register_freelance_projects');
+
+function add_acf_fields() {
+    if (function_exists('acf_add_local_field_group')) {
+        acf_add_local_field_group(array(
+            'key' => 'group_freelance_projects',
+            'title' => 'Freelance Projects Fields',
+            'fields' => array(
+                array(
+                    'key' => 'field_description',
+                    'label' => 'Description',
+                    'name' => 'description',
+                    'type' => 'textarea',
+                ),
+                array(
+                    'key' => 'field_image_gallery',
+                    'label' => 'Image Gallery',
+                    'name' => 'image_gallery',
+                    'type' => 'gallery',
+                ),
+                array(
+                    'key' => 'field_link',
+                    'label' => 'Link',
+                    'name' => 'link',
+                    'type' => 'url',
+                ),
+                array(
+                    'key' => 'field_date_started',
+                    'label' => 'Date Started',
+                    'name' => 'date_started',
+                    'type' => 'date_picker',
+                ),
+                array(
+                    'key' => 'field_duration',
+                    'label' => 'Duration',
+                    'name' => 'duration',
+                    'type' => 'text',
+                ),
+                array(
+                    'key' => 'field_technologies_used',
+                    'label' => 'Technologies Used',
+                    'name' => 'technologies_used',
+                    'type' => 'text',
+                ),
+                array(
+                    'key' => 'field_role',
+                    'label' => 'Role',
+                    'name' => 'role',
+                    'type' => 'text',
+                ),
+                array(
+                    'key' => 'field_team_size',
+                    'label' => 'Team Size',
+                    'name' => 'team_size',
+                    'type' => 'number',
+                ),
+                array(
+                    'key' => 'field_org_size',
+                    'label' => 'Org Size',
+                    'name' => 'org_size',
+                    'type' => 'number',
+                ),
+                array(
+                    'key' => 'field_client',
+                    'label' => 'Client',
+                    'name' => 'client',
+                    'type' => 'text',
+                ),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'post_type',
+                        'operator' => '==',
+                        'value' => 'freelance_project',
+                    ),
+                ),
+            ),
+        ));
+    }
+}
+
+add_action('acf/init', __NAMESPACE__ . '\\add_acf_fields');
